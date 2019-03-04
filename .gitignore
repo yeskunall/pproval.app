@@ -77,3 +77,8 @@ atlassian-ide-plugin.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# You can ignore these
+.cache/
+node_modules
+package-lock.json
