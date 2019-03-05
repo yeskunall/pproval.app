@@ -1,0 +1,32 @@
+{
+  "name": "pproval.app",
+  "private": true,
+  "version": "0.0.1",
+  "description": "TODO: Fill this in",
+  "main": ".",
+  "scripts": {
+    "test": "."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.java": "./scripts/fmt.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pproval-org/app.git"
+  },
+  "author": "Kunall Banerjee <yeskunall96@gmail.com> (https://kimchi.now.sh/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pproval-org/app/issues"
+  },
+  "homepage": "https://github.com/pproval-org/app#readme",
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5"
+  }
+}
