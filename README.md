@@ -1,6 +1,8 @@
-<a href="https://github.com/pproval-org/app.git" target="_blank" rel="noopener noreferrer"><img width="900" src=".github/banner@2x.png" alt="talos-banner--inverted" /></a>
+﻿<a href="https://github.com/pproval-org/app.git" target="_blank" rel="noopener noreferrer"><img width="900" src=".github/banner@2x.png" alt="talos-banner--inverted" /></a>
 
 > 📑 Submit. 🧐 Review. ✅ _Approve_.
+
+[![Build Status](https://travis-ci.com/yeskunall/pproval.app.svg?branch=master)](https://travis-ci.com/yeskunall/pproval.app)
 
 ## Getting Started
 
