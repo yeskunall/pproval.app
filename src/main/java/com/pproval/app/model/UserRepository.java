@@ -1,4 +1,4 @@
-package com.pproval.app;
+package com.pproval.app.model;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
