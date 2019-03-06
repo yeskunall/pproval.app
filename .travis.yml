@@ -1,6 +1,6 @@
 language: java
 before_script:
-  - psql -c 'create database postgres;' -U postgres
+  - psql -c 'create database pproval;' -U postgres
 deploy:
   provider: heroku
   api_key:
