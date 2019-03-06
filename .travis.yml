@@ -1,4 +1,6 @@
 language: java
+before_script:
+  - psql -c 'create database postgres;' -U postgres
 deploy:
   provider: heroku
   api_key:
@@ -7,3 +9,5 @@ deploy:
 jdk: oraclejdk11
 notifications:
   email: false
+services:
+  - postgresql
