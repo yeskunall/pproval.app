@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ControllerName {
 
-  @GetMapping ("/submitTest")
+  @GetMapping ("/submit")
   public String submit(){
-    return "submitTest";
+    return "submit";
   }
 
   @GetMapping ("/home")
   public String home() {
     return "home";
+  }
+
+  @GetMapping ("/view")
+  public String view() {
+    return "view";
   }
 }
