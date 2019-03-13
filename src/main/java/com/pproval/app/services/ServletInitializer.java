@@ -1,5 +1,6 @@
-package com.pproval.app;
+package com.pproval.app.services;
 
+import com.pproval.app.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
