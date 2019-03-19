@@ -2,14 +2,15 @@ server:
   port: 3000
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/pproval-test
+    url: jdbc:postgresql://localhost:5432/pproval
     username: postgres
     password:
   jpa:
+    generate-ddl: true
     properties:
       hibernate:
         ddl-auto: update
-        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
         temp:
           use_jdbc_metadata_defaults: false
 
