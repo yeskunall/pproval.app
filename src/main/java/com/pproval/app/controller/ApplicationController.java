@@ -20,4 +20,19 @@ public class ApplicationController {
   public String view() {
     return "view-Submitter";
   }
+
+  @GetMapping("/home-Editor")
+  public String homeEditor() {
+    return "home-Editor";
+  }
+
+  @GetMapping("/approveReject-Editor")
+  public String approveReject() {
+    return "approveReject-Editor";
+  }
+
+  @GetMapping("/view-Editor")
+  public String viewEditor() {
+    return "view-Submitter";
+  }
 }
