@@ -26,6 +26,6 @@ spring:
     properties:
       hibernate:
         ddl-auto: update
-        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
         temp:
           use_jdbc_metadata_defaults: false
