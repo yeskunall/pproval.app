@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ApplicationController {
 
   @GetMapping("/home-Submitter")
-  public String home() {
-    return "home-Submitter";
-  }
+  public String home() { return "home-Submitter"; }
 
   @GetMapping("/submit-Submitter")
   public String submit() {
@@ -33,6 +31,6 @@ public class ApplicationController {
 
   @GetMapping("/view-Editor")
   public String viewEditor() {
-    return "view-Submitter";
+    return "view-Editor";
   }
 }
