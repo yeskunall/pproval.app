@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>View-Submitter</title>
@@ -26,5 +26,28 @@
     </div>
   </nav>
 </header>
+
+<br><br>
+<h3> All Articles: </h3>
+<br>
+
+
+
+<table style="width:100%">
+
+  <thead>
+  <th>Name</th>
+  <th>Submitted By</th>
+  <th>Status</th>
+  <th>Article</th>
+  </thead>
+  <tr th:each="article:${articles}">
+    <td> <span th:text="${article.name}"> </span> </td>
+    <td> <span th:text="${article.submitter.username}"> </span> </td>
+    <td> <span th:text="${article.status}"> </span> </td>
+    <td> <span th:text="${article.content}"> </span> </td>
+  </tr>
+</table>
+
 </body>
 </html>

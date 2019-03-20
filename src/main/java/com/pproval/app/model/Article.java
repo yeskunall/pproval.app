@@ -16,10 +16,8 @@ public class Article {
   Reviewer reviewer;
   @OneToOne
   Submitter submitter;
-  @OneToOne
-  TextFile review;
-  @OneToOne(cascade={CascadeType.ALL})
-  TextFile article;
+  String review;
+  String article;
   Status status;
 
   public enum Status {
@@ -29,7 +27,7 @@ public class Article {
     REJECTED;
   }
 
-  public Article(Submitter submitter, String name, TextFile article){
+  public Article(Submitter submitter, String name, String article){
     this.submitter = submitter;
     this.name = name;
     this.article = article;
@@ -60,19 +58,19 @@ public class Article {
     this.reviewer = reviewer;
   }
 
-  public TextFile getReview() {
+  public String getReview() {
     return review;
   }
 
-  public void setReview(TextFile review) {
+  public void setReview(String review) {
     this.review = review;
   }
 
-  public TextFile getArticle() {
+  public String getContent() {
     return article;
   }
 
-  public void setArticle(TextFile article) {
+  public void setArticle(String article) {
     this.article = article;
   }
 
