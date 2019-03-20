@@ -25,6 +25,10 @@ public class EditorController {
       currentUser = editor;
       Submitter s1 = new Submitter("John", "Password1");
       Submitter s2 = new Submitter("Mary", "P1");
+      Reviewer r1 = new Reviewer("Ryan", "password");
+      Reviewer r2 = new Reviewer("Robert", "password2");
+      Reviewer r3 = new Reviewer("Jack", "password3");
+      Reviewer r4 = new Reviewer("Bob", "password4");
       userRepo.save(s1);
       userRepo.save(s2);
       Article a1 = new Article(s1,
@@ -45,17 +49,32 @@ public class EditorController {
         "O Canada", "O Canada " +
         " Our home and native land" +
         " true patriot love. In all our sons command");
-      b1.setReview(" This work is incredible");
+      b2.setReview(" This work is incredible");
+      b2.setStatus(Article.Status.INREVIEW);
+
+      Article b3= new Article( s2,
+        "Spider", "The itsy bitsy spider " +
+        " Climbed up the water fall " +
+        " down came the rain and washed the spider out");
+      b3.setReview(" This is god awful");
+      b3.setStatus(Article.Status.INREVIEW);
+
+
       articleRepo.save(b1);
       articleRepo.save(b2);
       articleRepo.save(a1);
       articleRepo.save(a2);
+      articleRepo.save(b3);
     }
     return "home-Editor";
   }
 
   @GetMapping("/assignReviewer-Editor")
-  public String assignReviewer() {
+  public String assignReviewer(Model model) {
+    model.addAttribute("articles",
+      articleRepo.findByStatus(Article.Status.SUBMITTED));
+    model.addAttribute("reviewers",
+      articleRepo.findAll());
     return "assignReviewer-Editor";
   }
 
@@ -78,7 +97,18 @@ public class EditorController {
     Article article = articleRepo.findById(ID).get();
     article.setStatus(Article.Status.ACCEPTED);
     articleRepo.save(article);
-    return "assignReviewer-Editor";
+    model.addAttribute("articles", articleRepo.findByStatus(Article.Status.INREVIEW));
+    return "approveReject-Editor";
   }
+
+  @PostMapping("/articleReject")
+  public String rejectArticle(@ModelAttribute(name = "articleId") int ID,
+                               Model model){
+    Article a1 = articleRepo.findById(ID).get();
+    a1.setStatus(Article.Status.REJECTED);
+    articleRepo.save(a1);
+    return "approveReject-Editor";
+  }
+
 
 }
