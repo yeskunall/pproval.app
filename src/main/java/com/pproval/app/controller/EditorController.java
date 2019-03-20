@@ -3,6 +3,8 @@ package com.pproval.app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import com.pproval.app.model.*;
 import org.springframework.ui.Model;
 
@@ -33,6 +35,19 @@ public class EditorController {
         "Frere Jacques", "FrËre Jacques, FrËre Jacques, Dormez-vous? " +
         "Dormez-vous? Sonnez les matines! Sonnez les matines! Ding, dang, " +
         "dong. Ding, dang, dong.");
+      Article b1= new Article(s1,
+        "Happy Birthday", "Happy Birthday to you " +
+        " You live in a zoo. You smell like a monkey" +
+        " and you look like one to. Happy Birthday old man");
+      b1.setStatus(Article.Status.INREVIEW);
+
+      Article b2= new Article( s2,
+        "O Canada", "O Canada " +
+        " Our home and native land" +
+        " true patriot love. In all our sons command");
+      b1.setReview(" This work is incredible");
+      articleRepo.save(b1);
+      articleRepo.save(b2);
       articleRepo.save(a1);
       articleRepo.save(a2);
     }
@@ -45,7 +60,9 @@ public class EditorController {
   }
 
   @GetMapping("/approveReject-Editor")
-  public String approveReject() {
+  public String approveReject(Model model) {
+    model.addAttribute("articles",
+      articleRepo.findByStatus(Article.Status.INREVIEW));
     return "approveReject-Editor";
   }
 
@@ -54,4 +71,14 @@ public class EditorController {
     model.addAttribute("articles", articleRepo.findAll());
     return "view-Editor";
   }
+
+  @PostMapping("/articleApprove")
+  public String approveArticle(@ModelAttribute(name = "articleId") int ID,
+                               Model model){
+    Article article = articleRepo.findById(ID).get();
+    article.setStatus(Article.Status.ACCEPTED);
+    articleRepo.save(article);
+    return "assignReviewer-Editor";
+  }
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Approve/Reject-Editor</title>
@@ -29,9 +29,28 @@
     </div>
   </nav>
 </header>
+<br><br>
+<h3>Articles in Review: </h3>
+<br>
+<table style="width:100%">
+  <thead>
+  <th>Name</th>
+  <th>Submitted By</th>
+  <th>Article</th>
+  <th>Review</th>
+  </thead>
+  <tr th:each="article:${articles}">
+    <td> <span th:text="${article.name}"> </span> </td>
+    <td> <span th:text="${article.submitter.username}"> </span> </td>
+    <td> <span th:text="${article.content}"> </span> </td>
+    <td> <span th:text="${article.review}"> </span> </td>
+    <td> <form action="articleApprove" method="post">
+      <input type="hidden" name="articleId" th:value="${article.id}" />
+      <input type="submit" value="Approve" />
+    <td> <form action="articleReject" method="post">
+      <input type="hidden" name="articleId" th:value="${article.id}" />
+      <input type="submit" value="Reject" />
+    </form> </td>
+  </tr>
+</table>
 </body>
-<h1>Approval Process</h1>
-<textarea rows="50" cols="100">
-</textarea>
-<p style="align-items:CENTER"><button type="button">Approve</button></p>
-<button type="button">Reject</button>
