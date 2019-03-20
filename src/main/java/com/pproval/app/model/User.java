@@ -4,15 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public abstract class User {
   private final String type = "User";
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+
   private Integer id = null;
 
+  @NotBlank(message="user must have username")
   String username;
+  @NotBlank(message="user must have password")
   String password;
 
   public User(String username, String password){
