@@ -20,8 +20,6 @@ Grab pgAdmin 4 [here](https://www.pgadmin.org/download/)
 
 Under the “General” tab, give your server a name, and then head to the “Connection” tab, set “Host name/address” to “`localhost`” and hit save.
 
-If everything was set up correctly, your
-
 > \*A PostgreSQL server instance must already be running before you process with this step
 
 <br />
