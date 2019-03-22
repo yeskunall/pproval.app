@@ -74,10 +74,10 @@ This project follows the [Google Java Style Guide](https://google.github.io/styl
 
 The app is deployed to Heroku: the `master` branch is automatically deployed to Heroku once the CI tests pass. Visit the latest version of pproval.app [here](https://pproval.herokuapp.com)
 
-## Upcoming (March 6<sup>th</sup> - March 20<sup>th</sup>)
+<!-- ## Upcoming (March 6<sup>th</sup> - March 20<sup>th</sup>)
 
 - Finish tasks from previous milestone (_if any remaining_)
-- *__TODO__: Fill the rest*
+- *__TODO__: Fill the rest* -->
 
 ## License
 
