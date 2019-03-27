@@ -1,48 +1,22 @@
 package com.pproval.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
-public abstract class User {
-  private final String type = "User";
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "person")
+public class User extends AuditModel {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id = null;
+  @Column(name = "id", updatable = false, nullable = false)
+  private Long id;
 
-  String username;
-  String password;
+  @NotNull private String username;
 
-  public User(String username, String password){
-    this.username = username;
-    this.password = password;
-  }
-
-  public User(){ }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
+  @NotNull private String password;
 }
