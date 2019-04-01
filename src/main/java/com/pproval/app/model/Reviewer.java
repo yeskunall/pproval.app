@@ -1,14 +1,18 @@
 package com.pproval.app.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Reviewer extends User {
-  private final String type ="Reviewer";
+  private final String type = "Reviewer";
 
-  public Reviewer(String username, String password){
-    super(username, password);
-  }
-
-  public Reviewer(){ }
+  @NotNull String username;
+  @NotNull String password;
 }
