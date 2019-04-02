@@ -52,7 +52,7 @@ public class ArticleTest {
   @Test
   public void getArticle() {
     assertEquals("Article text should match.", "Just pretend this is my final" +
-      " report", article.getArticle());
+      " report.", article.getArticle());
   }
 
   @Test
