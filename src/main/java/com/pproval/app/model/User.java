@@ -1,30 +1,49 @@
 package com.pproval.app.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
-public abstract class User {
-  private final String type = "User";
+@AllArgsConstructor
+@Table(name = "person")
+public abstract class User extends AuditModel {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id", updatable = false, nullable = false)
+  private Integer id= null;
 
-  private Integer id = null;
+  @NotNull @NotBlank(message="user must have username")
+  private String username;
 
-  @NotBlank(message="user must have username")
-  String username;
-  @NotBlank(message="user must have password")
-  String password;
+  @NotNull @NotBlank(message="user must have password")
+  private String password;
 
+  private final String type = "User";
+  //@Id
+ // @GeneratedValue(strategy = GenerationType.AUTO)
+
+  //private Integer id = null;
+
+  //@NotBlank(message="user must have username")
+  //String username;
+  //@NotBlank(message="user must have password")
+  //String password;
+  public User(){}
   public User(String username, String password){
     this.username = username;
     this.password = password;
   }
 
-  public User(){ }
+
 
   public Integer getId() {
     return id;
@@ -49,4 +68,5 @@ public abstract class User {
   public void setPassword(String password) {
     this.password = password;
   }
+
 }
