@@ -8,17 +8,12 @@ import static org.junit.Assert.*;
 
 public class ArticleTest {
 
-  private Submitter submitter;
-  private Reviewer reviewer;
   private Article article;
 
   @Before
   public void setUp() throws Exception {
-    submitter = new Submitter("subUsername", "subPassword");
-    reviewer = new Reviewer("revUsername", "revPassword");
-    article = new Article(submitter, "Final Project Report", "Just pretend " +
+    article = new Article("Ryan", "Final Project Report", "Just pretend " +
       "this is my final report.");
-    article.setReviewer(reviewer);
   }
 
   @After
@@ -33,14 +28,9 @@ public class ArticleTest {
   }
 
   @Test
-  public void getReviewer() {
-    assertEquals("Reviewers should match.", reviewer, article.getReviewer());
-  }
-
-  @Test
-  public void getSubmitter() {
-    assertEquals("Submitters should match.", submitter,
-      article.getSubmitter());
+  public void getAuthor() {
+    assertEquals("Author should be 'Ryan'.", "Ryan",
+      article.getAuthor());
   }
 
   @Test
@@ -60,6 +50,13 @@ public class ArticleTest {
     article.setName("New Title");
     assertEquals("Name should be 'New Title'.", "New Title",
       article.getName());
+  }
+
+  @Test
+  public void setAuthor() {
+    article.setAuthor("Nobody");
+    assertEquals("Author should be 'Nobody'.", "Nobody",
+      article.getAuthor());
   }
 
   @Test

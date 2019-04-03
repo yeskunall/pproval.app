@@ -11,8 +11,7 @@ import java.util.List;
 public interface ArticleRepository extends PagingAndSortingRepository<Article, Integer> {
 
   List<Article> findByName(@Param("name") String name);
-  List<Article> findBySubmitter(@Param("submitter") Submitter submitter);
   List<Article> findByDeadline(@Param("deadline") Date deadline);
   List<Article> findByStatus(@Param("status") Article.Status status);
-  List<Article> findByReviewer(@Param("reviewer") Reviewer reviewer);
+  List<Article> findByAuthor(@Param("author") String author);
 }

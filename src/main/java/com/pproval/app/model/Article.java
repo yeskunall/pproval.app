@@ -15,12 +15,9 @@ public class Article {
   private String name;
   private Date submission;
   private Date deadline;
-  @OneToOne
-  private Reviewer reviewer;
-  @OneToOne
-  private Submitter submitter;
   private String review;
   private String article;
+  private String author;
   private Status status;
 
   public enum Status {
@@ -30,8 +27,8 @@ public class Article {
     REJECTED;
   }
 
-  public Article(Submitter submitter, String name, String article) {
-    this.submitter = submitter;
+  public Article(String author, String name, String article) {
+    this.author = author;
     this.name = name;
     this.article = article;
     this.status = Status.SUBMITTED;
