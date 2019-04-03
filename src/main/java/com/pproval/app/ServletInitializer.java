@@ -1,4 +1,4 @@
-package com.pproval.app.services;
+package com.pproval.app;
 
 import com.pproval.app.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;
