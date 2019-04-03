@@ -30,7 +30,7 @@ public class Article {
     REJECTED;
   }
 
-  public Article(Submitter submitter, String name, String article){
+  public Article(Submitter submitter, String name, String article) {
     this.submitter = submitter;
     this.name = name;
     this.article = article;
