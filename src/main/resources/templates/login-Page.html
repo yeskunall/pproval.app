@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<form th:action="@{/validateUsername}" method = "post" th:object ="${user}">
+  <h1> Please Sign In </h1>
+
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" th:field="*{username}"
+           required>
+
+    <br> </br>
+
+    <label><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" th:field="*{password}"
+           required>
+
+    <br> </br>
+
+    <button type="submit">Login</button>
+
+  </div>
+
+
+</form>

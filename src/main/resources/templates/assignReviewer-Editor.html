@@ -43,26 +43,27 @@
     <td> <span th:text="${article.submitter.username}"> </span> </td>
     <td> <span th:text="${article.content}"> </span> </td>
     <td>
-      <form name = 'f' th:object="${personForm}" method='POST'>
-        <table>
-          <tr>
-            <td>Select Reviewer</td>
-            <td>
-              <select th:field="*{reviewer.id}">
-                <option value=""> -- </option>
-                <option th:each="reviewer : ${reviewers}"
-                        th:value="${reviewer.id}"
-                        th:utext="${reviewer.username}"
-              </select>
-            </td>
-          </tr>
-        </table>
+      <form  th:action= "@{/reviewerAssigned}"
+            th:object="${reviewer}"
+             method="post">
+        <p> Reviewer:
+        <input type="hidden" name="articleId" th:value="${article.id}" />
+        <input type = "text" name="reviewer" th:field="*{username}"/>
+        <input type = "submit" value = "Accept"/>
+        </p>
       </form>
     </td>
-    <td> <form action="articleReject" method="post">
-      <input type="hidden" name="articleId" th:value="${article.id}" />
-      <input type="submit" value="Reject" />
-    </form> </td>
   </tr>
 </table>
+<br/>
+<h3> List of Reviewers </h3>
+<table>
+
+<tr th:each="availableReviewer:${reviewers}">
+  <td> <span th:text="${availableReviewer.username}"> </span> </td>
+</table>
 </body>
+
+
+
+

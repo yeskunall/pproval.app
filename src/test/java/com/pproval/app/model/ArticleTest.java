@@ -8,11 +8,11 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 public class ArticleTest {
-  private final Submitter submit= new Submitter("Pragya", "Password");
+  private final User submit= new Submitter("Pragya", "Password");
   private final Article test= new Article(submit,"Pragya","2cool4school");
   private Date deadline= new Date();
-  private final Reviewer reviewer= new Reviewer("Pragya","Password");
-  private final Reviewer temp= new Reviewer("Ryan", "Happy123");
+  private final User reviewer= new Reviewer("Pragya","Password");
+  private final User temp= new Reviewer("Ryan", "Happy123");
 
   @Test
   public void setId() {

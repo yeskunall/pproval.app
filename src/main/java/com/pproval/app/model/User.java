@@ -1,18 +1,16 @@
 package com.pproval.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public abstract class User {
-  private final String type = "User";
+public class User {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-
+  @Column(name = "id")
+  @GeneratedValue
   private Integer id = null;
+
+  protected String type;
 
   @NotBlank(message="user must have username")
   String username;
@@ -48,5 +46,13 @@ public abstract class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type){
+    this.type = type;
   }
 }

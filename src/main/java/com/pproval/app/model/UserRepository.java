@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<User, Integer> {
   List<User> findByUsername(@Param("username") String username);
+  List<User> findByUsernameAndType(@Param("username") String username,
+                                   @Param("type") String type);
   List<User> findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
   List<User> findByType(@Param("type") String type);
 }

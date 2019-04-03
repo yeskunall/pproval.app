@@ -13,9 +13,9 @@ public class Article {
   Date submission;
   Date deadline;
   @OneToOne
-  Reviewer reviewer;
+  User reviewer;
   @OneToOne
-  Submitter submitter;
+  User submitter;
   String review;
   String article;
   Status status;
@@ -27,7 +27,7 @@ public class Article {
     REJECTED;
   }
 
-  public Article(Submitter submitter, String name, String article){
+  public Article(User submitter, String name, String article){
     this.submitter = submitter;
     this.name = name;
     this.article = article;
@@ -50,11 +50,11 @@ public class Article {
     this.deadline = deadline;
   }
 
-  public Reviewer getReviewer() {
+  public User getReviewer() {
     return reviewer;
   }
 
-  public void setReviewer(Reviewer reviewer) {
+  public void setReviewer(User reviewer) {
     this.reviewer = reviewer;
   }
 
@@ -82,11 +82,11 @@ public class Article {
     this.status = status;
   }
 
-  public Submitter getSubmitter() {
+  public User getSubmitter() {
     return submitter;
   }
 
-  public void setSubmitter(Submitter submitter) {
+  public void setSubmitter(User submitter) {
     this.submitter = submitter;
   }
 
